@@ -1,4 +1,5 @@
 package jm.task.core.jdbc.dao;
+
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.*;
@@ -12,7 +13,6 @@ public class UserDaoHibernateImpl implements UserDao {
     public UserDaoHibernateImpl() {
 
     }
-
 
     @Override
     public void createUsersTable() {
@@ -111,7 +111,7 @@ public class UserDaoHibernateImpl implements UserDao {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            session.createNativeQuery("TRUNCATE TABLE test.users;").executeUpdate();
+            session.createNativeQuery("TRUNCATE TABLE users;").executeUpdate();
             transaction.commit();
         } catch (HibernateException e) {
             e.printStackTrace();
